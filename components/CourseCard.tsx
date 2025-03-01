@@ -12,6 +12,8 @@ import {
   GetCoursesQueryResult,
   // GetEnrolledCoursesQueryResult,
 } from "@/sanity.types";
+import { Loader } from "./Loader";
+import { CourseProgress } from "./CourseProgress";
 
 interface CourseCardProps {
   course:
