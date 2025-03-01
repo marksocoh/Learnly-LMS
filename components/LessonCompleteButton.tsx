@@ -52,7 +52,7 @@ export function LessonCompleteButton({
         setIsCompleted(newStatus);
       });
 
-      router.refresh();
+      // router.refresh();
     } catch (error) {
       console.error("Error toggling lesson completion:", error);
     } finally {
