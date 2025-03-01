@@ -1,6 +1,6 @@
 "use client";
 
-// import { createStripeCheckout } from "@/actions/createStripeCheckout";
+import { createStripeCheckout } from "@/actions/createStripeCheckout";
 import { useUser } from "@clerk/nextjs";
 import { CheckCircle } from "lucide-react";
 import Link from "next/link";
@@ -15,7 +15,7 @@ function EnrollButton({
   isEnrolled: boolean;
 }) {
   const { user, isLoaded: isUserLoaded } = useUser();
-  const router = useRouter();
+  const router = useRouter(); 
   const [isPending, startTransition] = useTransition();
 
   const handleEnroll = async (courseId: string) => {
@@ -69,7 +69,7 @@ function EnrollButton({
         }
       `}
       disabled={!user?.id || isPending}
-      // onClick={() => handleEnroll(courseId)}
+      onClick={() => handleEnroll(courseId)}
     >
       {!user?.id ? (
         <span className={`${isPending ? "opacity-0" : "opacity-100"}`}>

@@ -7,7 +7,8 @@ import { urlFor } from "@/sanity/lib/image";
 import getCourseById from "@/sanity/lib/courses/getCourseById";
 import { createStudentIfNotExists } from "@/sanity/lib/student/createStudentIfNotExists";
 import { clerkClient } from "@clerk/nextjs/server";
-import { createEnrollment } from "@/sanity/lib/student/createEnrollment";
+import { createEnrollment } from "@/sanity/lib/courses/createEnrollment";
+
 
 export async function createStripeCheckout(courseId: string, userId: string) {
   try {
@@ -80,7 +81,7 @@ export async function createStripeCheckout(courseId: string, userId: string) {
       ],
       mode: "payment",
       success_url: `${baseUrl}/courses/${slug.current}`,
-      cancel_url: `${baseUrl}/courses/${slug.current}?canceled=true`,
+      cancel_url: `${baseUrl}/courses/${slug.current}?canceled=true`, 
       metadata: {
         courseId: course._id,
         userId: userId,
